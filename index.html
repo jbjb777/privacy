@@ -23,87 +23,189 @@
   <path fill="url(%23linearGradient1)" d="M 2000 1000 C 2000 448 1552 0 1000 0 C 448 0 0 448 0 1000 C 0 1552 448 2000 1000 2000 C 1552 2000 2000 1552 2000 1000 Z"/>
   <path fill="%23fff" filter="url(%23filter1)" d="M 1137 506 C 1252 449 1369 497 1427 625 L 1459 696 C 1484 752 1488 821 1471 878 L 1472 877 C 1535 891 1581 939 1608 997 L 1632 1052 C 1698 1199 1657 1324 1544 1381 L 1175 1565 L 972 1114 C 1002 1241 946 1377 834 1433 L 776 1462 C 654 1523 518 1467 449 1343 L 596 1269 C 625 1309 663 1331 708 1308 L 758 1283 C 813 1256 830 1185 802 1124 L 525 509 L 672 435 L 784 683 L 1137 506 Z M 1444 1232 C 1488 1210 1504 1149 1480 1095 L 1476 1085 C 1452 1033 1397 1007 1353 1029 L 1151 1130 L 1242 1333 L 1444 1232 Z M 1184 679 L 991 775 L 1084 981 L 1276 885 C 1319 864 1336 802 1312 749 L 1306 736 C 1283 684 1226 658 1184 679 Z"/>
 </svg>' />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-   
-    .container {
-      text-align: center;
-      padding: 40px;
-      max-width: 600px;
-    }
-    
-    .logo-image {
-      width: 300px;
-      height: 300px;
-      margin-bottom: -30px;
-    }
-    
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 30px;
-      line-height: 1.5;
-    }
-    
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-    }
-    .top-button {
-      background: #3663FF;
-      color: #fff;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      white-space: nowrap;
-      min-width: 250px;
-    }
-    .top-button:hover {
-      transform: translateY(-8px) scale(1.05);
-    }
-    @media (max-width: 800px) {
-      .logo-image {
-        width: 100px;
-        height: 100px;
-      }
-      .logo {
-        font-size: 18px;
-      }
-      .top-button {
-        min-width: 200px;
-      }
-    }
-  </style>
+
+
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="stylesheet" href="header.css">
+
+<style>
+
+  * { box-sizing: border-box; }
+  body {
+    margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#121212; color:#fff; display:flex; flex-direction:column; min-height:100vh;
+  }
+
+
+  #header-container { width:100%; }
+
+  /* 본문 컨테이너 */
+  .policy-wrapper {
+    display:flex;
+    justify-content:center;
+    padding:36px 20px;
+    flex:1;
+  }
+
+  /* 카드 배경은 chat.html의 .container와 동일 계열, 텍스트/강조는 chat.html의 블루(#3663FF ~ #53b6f9) 계열로 맞춤 */
+  .policy-card {
+    width:100%;
+    max-width:980px;
+    background:#1e1e1e; /* chat.html .container 배경과 통일 */
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 8px 30px rgba(54,99,255,0.03); /* 블루 계열 약한 그림자 */
+    border: 1px solid rgba(54,99,255,0.04);
+    color:#e6f0ff; /* chat.html에 맞춘 밝은 텍스트 톤 */
+  }
+
+  /* 페이지 헤더(영웅 영역) : chat.html 버튼/액센트의 블루 그라데이션으로 변경 */
+  .policy-hero {
+    text-align:center;
+    background: linear-gradient(135deg,#3663FF,#53b6f9); /* chat.html 계열 색상 사용 */
+    color:#fff;
+    padding:22px;
+    margin:-28px -28px 18px -28px;
+    border-top-left-radius:16px;
+    border-top-right-radius:16px;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:-0.3px;
+  }
+
+  /* 섹션 제목에 그라데이션 텍스트 적용 (chat.html의 블루 계열) */
+  h2 {
+    margin-top:20px;
+    font-size:18px;
+    padding-bottom:8px;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    background: linear-gradient(90deg,#3663FF,#53b6f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight:700;
+  }
+
+  /* 본문 텍스트는 읽기 쉬운 밝은 톤으로 유지 (chat.html과 일관) */
+  p, li {
+    color:#dfe9ff; /* 약간 블루 틴트가 들어간 밝은 색상 (chat UI와 조화) */
+    line-height:1.8;
+    font-size:15.5px;
+  }
+
+  ul { margin-left:18px; margin-top:8px; }
+
+  /* 링크는 chat.html의 주요 버튼 색과 동일 */
+  a { color:#3663FF; text-decoration:none; font-weight:600; }
+  a:hover { text-decoration:underline; color:#53b6f9; }
+
+  .footer-space { height:48px; }
+
+  /* 모바일 대응 */
+  @media (max-width:800px) {
+    .policy-card { padding:18px; border-radius:12px; }
+    .policy-hero { font-size:18px; padding:18px; margin:-18px -18px 14px -18px; }
+    h2 { font-size:17px; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.svg" alt="Logo" class="logo-image" />
-    <div class="logo">엄.. 나중에 만들게여</div>
-    <div class="button-container">
-      <button class="top-button" id="openLinkBtn1">아직 미완이에여(근데 귀차니즘이)</button>
-    </div>
-  </div>
-  <script>
-    document.getElementById('openLinkBtn1').addEventListener('click', () => {
-      window.open('https://jbjb.r-e.kr', '_blank');
-    });
-  </script>
+
+<!-- chat.html과 동일한 방식으로 상단바 로드 (header.js / header.css 사용) -->
+<div id="header-container"></div>
+
+<main class="policy-wrapper" role="main" aria-labelledby="policy-title">
+  <article class="policy-card">
+    <div class="policy-hero" id="policy-title">개인정보 처리방침</div>
+
+    <p>
+      본 개인정보 처리방침은 jbjb.r-e.kr(이하 "사이트")가 제공하는 서비스
+      (로그인, 채팅, URL 생성 등) 이용 과정에서 수집되는 이용자 정보와
+      그 처리 방식을 설명합니다. 사이트는 「개인정보보호법」 등을 준수합니다.
+    </p>
+
+    <h2 id="policy-1">1. 수집하는 개인정보 항목</h2>
+    <ul>
+      <li><strong>구글 로그인 정보</strong>
+        <ul>
+          <li>구글 계정 이름(표시 이름)</li>
+          <li>구글 계정 이메일(로그인을 위한 식별용, 별도 저장 안 할 수 있음)</li>
+        </ul>
+      </li>
+
+      <li><strong>채팅 서비스(jbjb.r-e.kr/chat)에서 입력한 닉네임</strong></li>
+
+      <li><strong>URL 생성 서비스(url.jbjb.r-e.kr)에서 입력한 URL</strong>
+        <ul>
+          <li>사용자가 직접 입력한 URL</li>
+          <li>생성된 단축 URL 정보</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2 id="policy-2">2. 개인정보 수집 및 이용 목적</h2>
+    <ul>
+      <li>Google 계정 기반 로그인 기능 제공</li>
+      <li>채팅 서비스 내 닉네임 표시 및 사용자 구분</li>
+      <li>URL 단축/저장 서비스 제공 및 기록 관리</li>
+      <li>서비스 운영, 기능 제공 및 서비스 품질 개선</li>
+    </ul>
+
+    <h2 id="policy-3">3. 개인정보 보유 및 이용 기간</h2>
+    <p>
+      사이트는 <strong>Firebase</strong>를 이용하여 데이터를 저장하며, 별도의 보관 기간을 두지 않습니다. 사용자의 요청 시 데이터는 즉시 삭제됩니다.
+    </p>
+    <ul>
+      <li>Google 로그인 정보: 계정 연결 해제 시 즉시 삭제</li>
+      <li>채팅 닉네임: 사용자가 기록 삭제 요청 시 즉시 삭제</li>
+      <li>입력 URL: 사용자가 직접 삭제 요청 시 즉시 삭제</li>
+    </ul>
+
+    <h2 id="policy-4">4. 제3자 제공 및 위탁</h2>
+    <p>
+      사이트는 이용자의 개인정보를 외부에 판매하거나 제공하지 않습니다. 다만 아래 경우에만 예외적으로 제공될 수 있습니다:
+    </p>
+    <ul>
+      <li>이용자가 사전에 동의한 경우</li>
+      <li>법률에 따라 요청받은 경우(수사기관 등)</li>
+    </ul>
+
+    <h2 id="policy-5">5. 쿠키(Cookie) 사용</h2>
+    <p>
+      사이트는 로그인 유지 등 서비스 제공을 위해 쿠키를 사용할 수 있습니다.
+    </p>
+
+    <h2 id="policy-6">6. 아동의 개인정보 보호</h2>
+    <p>
+      사이트는 <strong>만 14세 미만 아동의 개인정보를 수집하지 않습니다.</strong>
+    </p>
+
+    <h2 id="policy-7">7. 이용자의 권리</h2>
+    <ul>
+      <li>자신의 개인정보 열람 요청</li>
+      <li>개인정보 삭제 요청</li>
+      <li>서비스 탈퇴 및 데이터 삭제 요청</li>
+    </ul>
+
+    <h2 id="policy-8">8. 개인정보 관련 문의</h2>
+    <p>
+      개인정보에 관한 문의는 아래 이메일로 연락할 수 있습니다.<br><br>
+      📧 <a href="mailto:jbin.eom.1972@gmail.com">jbin.eom.1972@gmail.com</a>
+    </p>
+
+    <h2 id="policy-9">9. 개인정보 처리방침 변경</h2>
+    <p>
+      본 방침이 변경될 경우, 사이트 홈 페이지 내 베너 이미지를 통해 안내합니다.
+    </p>
+
+    <div class="footer-space" aria-hidden="true"></div>
+  </article>
+</main>
+
+<!-- chat.html과 동일한 공통 헤더 스크립트 사용 -->
+<script src="header.js"></script>
+
 </body>
 </html>
